@@ -1,0 +1,8 @@
+
+.fit-viewport {
+    height: 100vh;
+  }
+  
+  .vh-image {
+    height: 100vh;  /* Adjust the value as needed (e.g., 50vh) */
+  }

@@ -1,0 +1,2 @@
+script: python manage.py migrate
+run: gunicorn youtube_downloader.wsgi:application

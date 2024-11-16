@@ -1,0 +1,17 @@
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.bg-image {
+    /* background-image: url("path/to/your/image.jpg"); */
+    background-size: cover;  /* Adjust background size as needed */
+    background-position: center;  /* Adjust background position as needed */
+  }

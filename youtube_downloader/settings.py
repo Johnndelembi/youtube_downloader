@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "secret_key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [".onrender.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [".onrender.com", "localhost", "0.0.0.0", "127.0.0.1"]
 
 
 # Application definition
@@ -143,4 +143,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'  # Example for Bootstrap 4
 
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
-LOGOUT_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'logout'

@@ -32,7 +32,10 @@
               <span class="nav-link">Welcome, {{ user.username }}</span>
             </li>
             <li class="nav-item">
-              <a href="{% url 'logout' %}" class="nav-link">Sign Out</a>
+              <form method="post" action="{% url 'logout' %}" class="d-inline"></form>
+                {% csrf_token %}
+                <button type="submit" class="nav-link" style="background: none; border: none;">Sign Out</button>
+              </form>
             </li>
           {% else %}
             <li class="nav-item">

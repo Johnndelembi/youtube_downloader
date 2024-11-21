@@ -11,21 +11,6 @@ class DownloadForm(forms.Form):
             }
         )
     )
-    format = forms.ChoiceField(
-        choices=[('mp4', 'MP4 (Video)'), ('mp3', 'MP3 (Audio)')],
-        widget=forms.Select(attrs={'class': 'form-control'})
-    )
-    quality = forms.ChoiceField(
-        choices=[
-            ('highest', 'Best Quality'),
-            ('1080p', '1080p'),
-            ('720p', '720p'),
-            ('480p', '480p'),
-            ('360p', '360p')
-        ],
-        widget=forms.Select(attrs={'class': 'form-control'}),
-        required=False
-    )
 
 class UserRegisterForm(UserCreationForm):
     class Meta:

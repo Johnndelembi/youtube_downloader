@@ -165,38 +165,7 @@
           Freebie YouTube Downloader
           </strong>
         </h1> 
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit" class="btn btn-primary">Download</button>
-                <!-- <div class="container mx-auto mt-2 text-center d-grid">
-                    <label for="{{ form.url.id_for_label }}" class="form-label">{{ form.url.label }}</label><br>
-                    <input class="form-control" type="text" id="{{ form.url.id_for_label }}" name="url" placeholder="Enter YouTube URL">
-
-                </div>
-                <div class="container text-center mt-4 mb-4">
-                    <label for="{{ form.format.id_for_label }}" class="form-label">Choose between Video/Audio</label>
-                  
-                    <div class="container mb-2 card card-header rounded-3">
-                        {{ form.format }}
-                    </div>  
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button type="submit" class="btn btn-dark rounded-3"><i class="bi bi-download"></i>  Download</button>
-                </div>     -->
-            </form>
-
-            <!-- Progress bar -->
-            <div id="progress-container" style="display: none;" class="mt-4">
-              <div class="progress">
-                  <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%"></div>
-              </div>
-              <div id="progress-info" class="mt-2">
-                  <span id="progress-percentage">0%</span> |
-                  <span id="download-speed">0 MB/s</span> |
-                  <span id="time-remaining">ETA: calculating...</span>
-              </div>
-            </div>
+        
     </div>
   </section>   
     
@@ -288,45 +257,6 @@
       </div>
     </section> 
 
-
-    <script>
-      let progressCheck;
-      
-      document.querySelector('form').addEventListener('submit', function(e) {
-          document.getElementById('progress-container').style.display = 'block';
-          startProgressCheck();
-      });
-      
-      function startProgressCheck() {
-          progressCheck = setInterval(checkProgress, 1000);
-      }
-      
-      function checkProgress() {
-          fetch('{% url "get_progress" %}')
-              .then(response => response.json())
-              .then(data => {
-                  const progressBar = document.getElementById('progress-bar');
-                  const progressPercentage = document.getElementById('progress-percentage');
-                  const downloadSpeed = document.getElementById('download-speed');
-                  const timeRemaining = document.getElementById('time-remaining');
-      
-                  progressBar.style.width = `${data.progress}%`;
-                  progressPercentage.textContent = `${data.progress}%`;
-                  downloadSpeed.textContent = `${data.speed} MB/s`;
-                  
-                  if (data.eta > 0) {
-                      timeRemaining.textContent = `ETA: ${data.eta} seconds`;
-                  }
-      
-                  if (data.progress >= 100) {
-                      clearInterval(progressCheck);
-                      setTimeout(() => {
-                          document.getElementById('progress-container').style.display = 'none';
-                      }, 2000);
-                  }
-              });
-      }
-      </script> 
     
 {% endblock %}
 {% include 'downloader/footer.html' %}
